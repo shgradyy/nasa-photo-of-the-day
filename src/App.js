@@ -3,17 +3,22 @@ import "./App.css";
 import axios from "axios";
 import Viewer from "./components/viewer";
 import InfoPanel from "./components/infopanel";
-import PicToggler from ".components/buttons";
+import PhotoToggler from ".components/buttons";
 
 function App() {
   const [photo, setPhoto] = useState();
   useEffect(() => {
     axios
-    .get(https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY)
+    .get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY')
+    .then(response => {
+      setPhoto(response.data);
+      console.log(response.data);
+    })
+    .catch(err =>{
+      console.log("You have an error!", err);
+    });
+  }, []);
 
-
-  })
-  
   
   
   
